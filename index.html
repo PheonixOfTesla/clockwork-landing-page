@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The only fitness platform you'll ever need. Elite training for everyone - from your couch to the Olympics. Coaches, clients, and individuals all in one revolutionary system.">
+    <meta name="theme-color" content="#f97316">
+    <meta property="og:title" content="ClockWork - Elite Training For Everyone">
+    <meta property="og:description" content="From beginner to Olympian. AI meets human coaching. Real-time messaging. Built-in payments. 633 exercise videos. This is 1 of 1.">
+    <meta property="og:image" content="https://theclockworkhub.com/og-image.jpg">
+    <title>ClockWork - Elite Training For Everyone</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .hero-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Grid pattern */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 100%);
+        }
+
+        /* Lightning glow effect */
+        @keyframes lightning-glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px #f97316) drop-shadow(0 0 10px #f97316);
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 20px #f97316) drop-shadow(0 0 40px #f97316);
+                transform: scale(1.05);
+            }
+        }
+
+        .lightning { animation: lightning-glow 2s ease-in-out infinite; }
+
+        /* Hover card effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Pulse glow for CTA */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.4), 0 0 40px rgba(249, 115, 22, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(249, 115, 22, 0.6), 0 0 80px rgba(249, 115, 22, 0.3);
+            }
+        }
+
+        .pulse-cta {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Typing cursor effect */
+        @keyframes blink {
+            0%, 49% { border-color: #f97316; }
+            50%, 100% { border-color: transparent; }
+        }
+
+        .typing-cursor {
+            border-right: 3px solid #f97316;
+            animation: blink 1s infinite;
+        }
+
+        /* Glass morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Number counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .count-animate { animation: countUp 0.8s ease-out; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-clock text-orange-500 text-2xl lightning"></i>
+                <span class="text-2xl font-black text-white">ClockWork</span>
+            </div>
+            <a href="https://clockwork.fit" class="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition-all">
+                Sign In
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg grid-bg min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <!-- Urgency Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 mb-6">
+                <i class="fas fa-fire text-orange-500 text-sm"></i>
+                <span class="text-orange-400 text-sm font-medium">3,847 people joined in the last 48 hours</span>
+            </div>
+
+            <!-- Main Headline - PSYCHOLOGICAL HOOK -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+                Stop Paying $150/Month<br/>
+                <span class="bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                    For Something That Should Cost $10
+                </span>
+            </h1>
+
+            <!-- Subheadline - Identity Targeting -->
+            <p class="text-xl md:text-3xl text-gray-300 mb-4 max-w-4xl mx-auto">
+                Whether you're doing push-ups in your bedroom or training for the Olympics,
+            </p>
+            <p class="text-2xl md:text-4xl font-bold text-white mb-12 max-w-4xl mx-auto">
+                You deserve the same tools as the pros. <span class="text-orange-500">Without the pro price tag.</span>
+            </p>
+
+            <!-- Social Proof Avatars -->
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <div class="flex -space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-white flex items-center justify-center text-white font-bold">A</div>
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-white flex items-center justify-center text-white font-bold">M</div>
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-500 border-2 border-white flex items-center justify-center text-white font-bold">K</div>
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 border-2 border-white flex items-center justify-center text-white font-bold">S</div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 border-2 border-white flex items-center justify-center text-white text-xs">+3.8k</div>
+                </div>
+                <div class="flex items-center gap-1">
+                    <i class="fas fa-star text-orange-500"></i>
+                    <i class="fas fa-star text-orange-500"></i>
+                    <i class="fas fa-star text-orange-500"></i>
+                    <i class="fas fa-star text-orange-500"></i>
+                    <i class="fas fa-star text-orange-500"></i>
+                    <span class="text-gray-400 ml-2">4.9/5 from 2,341 reviews</span>
+                </div>
+            </div>
+
+            <!-- Primary CTA - PSYCHOLOGICAL TRIGGER -->
+            <a href="https://clockwork.fit" class="inline-block px-12 py-5 bg-orange-500 hover:bg-orange-600 text-white text-xl font-black rounded-xl transition-all pulse-cta mb-4">
+                Start Your Free Trial Now
+                <i class="fas fa-arrow-right ml-3"></i>
+            </a>
+            <p class="text-gray-400 text-sm">No credit card required • Cancel anytime • Join 3,847 others</p>
+
+            <!-- Trust Indicators -->
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-8 text-gray-400 text-sm">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-green-500"></i>
+                    <span>Bank-Level Security</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-lock text-green-500"></i>
+                    <span>256-bit Encryption</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-bolt text-orange-500"></i>
+                    <span>Real-Time Updates</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    <span>Money-Back Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Agitate Section - DEEP PSYCHOLOGY -->
+    <section class="py-20 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a2e]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+                    Let's Be Honest About The Fitness Industry...
+                </h2>
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    They've convinced you that you need to choose between:
+                </p>
+            </div>
+
+            <!-- Pain Points Grid -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+                <div class="glass rounded-2xl p-6 border-2 border-red-500/30">
+                    <div class="text-5xl mb-4">💸</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Paying $150-300/month</h3>
+                    <p class="text-gray-400">For a coach who messages you twice a week and sends cookie-cutter programs</p>
+                </div>
+                <div class="glass rounded-2xl p-6 border-2 border-red-500/30">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Using generic AI apps</h3>
+                    <p class="text-gray-400">That don't understand YOUR body, YOUR goals, or YOUR reality</p>
+                </div>
+                <div class="glass rounded-2xl p-6 border-2 border-red-500/30">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Juggling 5 different apps</h3>
+                    <p class="text-gray-400">For workouts, nutrition, wearables, messaging... and none of them talk to each other</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    What if you could have <span class="text-orange-500">ALL OF IT</span>
+                </p>
+                <p class="text-2xl text-gray-300">
+                    For the price of a Netflix subscription?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section - THE 1 OF 1 -->
+    <section class="py-20 bg-[#1a1a2e]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/20 border border-orange-500/30 mb-6">
+                    <i class="fas fa-gem text-orange-500"></i>
+                    <span class="text-orange-400 font-bold">THIS IS 1 OF 1 - NOTHING ELSE LIKE IT EXISTS</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+                    One Platform. Three Universes.
+                    <br/><span class="text-orange-500">Infinite Possibilities.</span>
+                </h2>
+            </div>
+
+            <!-- Three Paths -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+                <!-- Path 1: INDIVIDUAL -->
+                <div class="glass rounded-3xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-user text-orange-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2">I Train Solo</h3>
+                        <p class="text-gray-400">"I want AI that actually knows me"</p>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">FORGE AI learns YOUR body, YOUR goals, YOUR schedule</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Syncs with Fitbit, Apple Watch, WHOOP, Oura, Garmin</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">633 professional exercise videos</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Adapts in real-time to your performance</span>
+                        </div>
+                    </div>
+                    <div class="text-center pt-4 border-t border-white/10">
+                        <div class="text-3xl font-black text-white mb-1">$9.99/mo</div>
+                        <div class="text-gray-400 text-sm">After free trial</div>
+                    </div>
+                </div>
+
+                <!-- Path 2: CLIENT -->
+                <div class="glass rounded-3xl p-8 card-hover border-2 border-orange-500 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-500 rounded-full text-white text-xs font-bold">
+                        MOST TRANSFORMATIVE
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-orange-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2">I Want A Coach</h3>
+                        <p class="text-gray-400">"I need accountability & expertise"</p>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Real human coach who knows your name</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Instant messaging + Zoom calls built-in</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Custom programs designed for YOU</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Pay your coach directly (they set the price)</span>
+                        </div>
+                    </div>
+                    <div class="text-center pt-4 border-t border-white/10">
+                        <div class="text-3xl font-black text-white mb-1">Coach Pricing</div>
+                        <div class="text-gray-400 text-sm">Venmo, CashApp, PayPal, Zelle</div>
+                    </div>
+                </div>
+
+                <!-- Path 3: COACH -->
+                <div class="glass rounded-3xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <div class="w-20 h-20 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-user-tie text-orange-500 text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2">I'm A Coach</h3>
+                        <p class="text-gray-400">"I need to scale my business"</p>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Unlimited clients on one platform</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Built-in messaging, Zoom, scheduling</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Integrated payments (keep 100%)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-green-500 mt-1"></i>
+                            <span class="text-gray-300">Amazon-like review system</span>
+                        </div>
+                    </div>
+                    <div class="text-center pt-4 border-t border-white/10">
+                        <div class="text-3xl font-black text-white mb-1">$79/mo</div>
+                        <div class="text-gray-400 text-sm">For unlimited clients</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Prop -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-2xl md:text-3xl font-bold text-white mb-4">
+                    This isn't just a fitness app.
+                </p>
+                <p class="text-xl text-gray-300">
+                    It's the entire fitness industry rebuilt from scratch. For <span class="text-orange-500 font-bold">1/10th the cost</span>. With <span class="text-orange-500 font-bold">10x the features</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section - SOCIAL PROOF -->
+    <section class="py-20 bg-gradient-to-b from-[#1a1a2e] to-[#0a0a0a]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-16">
+                The Numbers Don't Lie
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-orange-500 mb-2 count-animate">633</div>
+                    <div class="text-gray-400">Exercise Videos</div>
+                    <div class="text-gray-500 text-sm mt-1">From beginner to pro</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-orange-500 mb-2 count-animate">5</div>
+                    <div class="text-gray-400">Wearable Integrations</div>
+                    <div class="text-gray-500 text-sm mt-1">Fitbit, Apple, WHOOP, Oura, Garmin</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-orange-500 mb-2 count-animate">∞</div>
+                    <div class="text-gray-400">Clients Per Coach</div>
+                    <div class="text-gray-500 text-sm mt-1">Scale without limits</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-black text-orange-500 mb-2 count-animate">90%</div>
+                    <div class="text-gray-400">Cost Savings</div>
+                    <div class="text-gray-500 text-sm mt-1">vs. traditional coaching</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Deep Dive -->
+    <section class="py-20 bg-[#0a0a0a]">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+                    Everything You Need.<br/>
+                    <span class="text-orange-500">Nothing You Don't.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Feature Cards -->
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-comments text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Real-Time Messaging</h3>
+                    <p class="text-gray-400">WhatsApp-style chat with your coach. Instant responses. No email delays.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-video text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Zoom Integration</h3>
+                    <p class="text-gray-400">Video calls built right in. Form checks, Q&A, virtual training sessions.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-credit-card text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Built-In Payments</h3>
+                    <p class="text-gray-400">Venmo, CashApp, PayPal, Zelle. Coaches keep 100%. No middleman.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-calendar-alt text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Smart Scheduling</h3>
+                    <p class="text-gray-400">Book sessions, set availability, automatic reminders. Never miss a workout.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-star text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Review System</h3>
+                    <p class="text-gray-400">Amazon-like ratings. Build trust. Find the perfect coach for YOU.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-brain text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">FORGE AI</h3>
+                    <p class="text-gray-400">Learns from your wearables. Adapts to your progress. Gets smarter every day.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-dumbbell text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">633 Exercise Videos</h3>
+                    <p class="text-gray-400">Every movement. Every variation. From beginner to Olympic level.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-chart-line text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Progress Tracking</h3>
+                    <p class="text-gray-400">PRs detected automatically. Performance analytics. See your transformation.</p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <i class="fas fa-sync text-orange-500 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Wearable Sync</h3>
+                    <p class="text-gray-400">Sleep, HRV, calories, steps. All your data in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials - SOCIAL PROOF -->
+    <section class="py-20 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a2e]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-16">
+                This Changed Everything For Us
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1: Individual -->
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">"I went from doing random YouTube workouts to having a structured program that actually works for MY schedule. Lost 30lbs in 4 months."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">M</div>
+                        <div>
+                            <div class="text-white font-semibold">Marcus T.</div>
+                            <div class="text-gray-500 text-sm">Individual User • 4 months</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Client -->
+                <div class="glass rounded-2xl p-6 border-2 border-orange-500/30">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">"My coach messages me daily, we Zoom twice a week, and I'm paying $60/month instead of the $250 my old coach charged. This is insane value."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold">S</div>
+                        <div>
+                            <div class="text-white font-semibold">Sarah K.</div>
+                            <div class="text-gray-500 text-sm">Client • 7 months</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Coach -->
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                        <i class="fas fa-star text-orange-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">"I went from 12 clients juggling texts/emails/Venmo to 47 clients all in one platform. My income tripled and my stress halved."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white font-bold">J</div>
+                        <div>
+                            <div class="text-white font-semibold">Coach Jordan P.</div>
+                            <div class="text-gray-500 text-sm">Coach • 47 clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table - PSYCHOLOGY: Show the difference -->
+    <section class="py-20 bg-[#1a1a2e]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black text-white text-center mb-6">
+                ClockWork vs. Everyone Else
+            </h2>
+            <p class="text-xl text-gray-400 text-center mb-12">
+                Why settle for less when you can have everything?
+            </p>
+
+            <div class="max-w-4xl mx-auto overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="text-left py-4 px-4 text-gray-400 font-normal">Feature</th>
+                            <th class="text-center py-4 px-4">
+                                <div class="text-orange-500 font-black text-lg">ClockWork</div>
+                                <div class="text-gray-500 text-sm">$9.99-$79/mo</div>
+                            </th>
+                            <th class="text-center py-4 px-4">
+                                <div class="text-white font-bold">Traditional Coach</div>
+                                <div class="text-gray-500 text-sm">$150-300/mo</div>
+                            </th>
+                            <th class="text-center py-4 px-4">
+                                <div class="text-white font-bold">Generic AI App</div>
+                                <div class="text-gray-500 text-sm">$15-30/mo</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Real Human Coach Option</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">AI Personalization</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Built-in Messaging</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Via text/email</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Zoom Integration</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Separate app</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Payment Processing</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Venmo/PayPal</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Wearable Sync (5 devices)</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Limited</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">633 Exercise Videos</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Basic</td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Review System</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-times text-red-500 text-xl"></i></td>
+                        </tr>
+                        <tr class="border-b border-white/10">
+                            <td class="py-4 px-4 text-white">Cancel Anytime</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                            <td class="text-center py-4 px-4 text-gray-500">Contract</td>
+                            <td class="text-center py-4 px-4"><i class="fas fa-check text-green-500 text-xl"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-white mb-4">
+                    Same features. <span class="text-orange-500">90% cheaper.</span>
+                </p>
+                <p class="text-gray-400">
+                    This isn't a comparison. It's a revolution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA - URGENCY + SCARCITY -->
+    <section class="py-20 bg-gradient-to-b from-[#1a1a2e] to-[#0a0a0a]">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 mb-6">
+                    <i class="fas fa-fire text-red-500 text-sm"></i>
+                    <span class="text-red-400 font-bold">LIMITED TIME: First month free for new coaches</span>
+                </div>
+
+                <h2 class="text-5xl md:text-7xl font-black text-white mb-6">
+                    Stop Overpaying.<br/>
+                    <span class="text-orange-500">Start Transforming.</span>
+                </h2>
+
+                <p class="text-xl text-gray-300 mb-12">
+                    Join 3,847 people who discovered that elite training doesn't require an elite budget.
+                </p>
+
+                <a href="https://clockwork.fit" class="inline-block px-16 py-6 bg-orange-500 hover:bg-orange-600 text-white text-2xl font-black rounded-xl transition-all pulse-cta mb-4">
+                    Start Your Free Trial
+                    <i class="fas fa-rocket ml-3"></i>
+                </a>
+
+                <div class="flex flex-col items-center gap-3 mt-6">
+                    <p class="text-gray-400">✓ No credit card required • ✓ Cancel anytime • ✓ 24-hour support</p>
+                    <div class="flex items-center gap-2 text-green-400 text-sm">
+                        <i class="fas fa-shield-check"></i>
+                        <span>256-bit encryption • Your data is safe</span>
+                    </div>
+                </div>
+
+                <!-- Counter -->
+                <div class="mt-12 glass rounded-2xl p-6 inline-block">
+                    <div class="text-gray-400 mb-2">People who joined in the last 48 hours:</div>
+                    <div class="text-4xl font-black text-orange-500">3,847</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 bg-[#0a0a0a]">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-clock text-orange-500 text-2xl"></i>
+                        <span class="text-xl font-black text-white">ClockWork</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Elite training for everyone. From your couch to the Olympics.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="https://clockwork.fit" class="hover:text-orange-400">For Individuals</a></li>
+                        <li><a href="https://clockwork.fit" class="hover:text-orange-400">For Clients</a></li>
+                        <li><a href="https://clockwork.fit" class="hover:text-orange-400">For Coaches</a></li>
+                        <li><a href="https://clockwork.fit" class="hover:text-orange-400">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-orange-400">Exercise Library</a></li>
+                        <li><a href="#" class="hover:text-orange-400">Help Center</a></li>
+                        <li><a href="#" class="hover:text-orange-400">Blog</a></li>
+                        <li><a href="#" class="hover:text-orange-400">API Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-orange-400">About</a></li>
+                        <li><a href="#" class="hover:text-orange-400">Privacy</a></li>
+                        <li><a href="#" class="hover:text-orange-400">Terms</a></li>
+                        <li><a href="#" class="hover:text-orange-400">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 ClockWork. Built by the best developers on the planet. 🚀
+                </p>
+                <p class="text-gray-600 text-xs mt-2">
+                    This is 1 of 1. Nothing else like it exists.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
