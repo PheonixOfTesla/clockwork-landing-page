@@ -297,6 +297,16 @@
             color: var(--gray);
         }
 
+        .download-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .download-btn.disabled:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: none;
+        }
+
         .trust-line {
             font-size: 14px;
             color: var(--gray);
@@ -518,25 +528,25 @@
             </p>
 
             <div class="download-buttons">
-                <a href="https://github.com/PheonixOfTesla/omniverse-core/releases/latest" class="download-btn">
+                <a href="https://github.com/PheonixOfTesla/omniverse-core/releases/download/v1.0.0/Omniverse_1.0.0_x64.dmg" class="download-btn" download>
                     <i class="fab fa-apple"></i>
                     <div class="platform">
                         <div class="platform-name">macOS</div>
                         <div class="platform-detail">Apple Silicon & Intel</div>
                     </div>
                 </a>
-                <a href="https://github.com/PheonixOfTesla/omniverse-core/releases/latest" class="download-btn">
+                <a href="#" class="download-btn disabled" onclick="alert('Windows build coming soon!'); return false;">
                     <i class="fab fa-windows"></i>
                     <div class="platform">
                         <div class="platform-name">Windows</div>
-                        <div class="platform-detail">Windows 10/11</div>
+                        <div class="platform-detail">Coming Soon</div>
                     </div>
                 </a>
-                <a href="https://github.com/PheonixOfTesla/omniverse-core/releases/latest" class="download-btn">
+                <a href="#" class="download-btn disabled" onclick="alert('Linux build coming soon!'); return false;">
                     <i class="fab fa-linux"></i>
                     <div class="platform">
                         <div class="platform-name">Linux</div>
-                        <div class="platform-detail">AppImage</div>
+                        <div class="platform-detail">Coming Soon</div>
                     </div>
                 </a>
             </div>
@@ -587,7 +597,7 @@
                         <li>Your keys, Single device</li>
                         <li>You maintain</li>
                     </ul>
-                    <a href="https://github.com/PheonixOfTesla/omniverse-core/releases" class="pricing-cta">Download</a>
+                    <a href="https://github.com/PheonixOfTesla/omniverse-core/releases/download/v1.0.0/Omniverse_1.0.0_x64.dmg" class="pricing-cta" download>Download</a>
                 </div>
 
                 <!-- Sync (Featured) -->
