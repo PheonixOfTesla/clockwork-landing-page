@@ -352,8 +352,8 @@
     </div>
 
     <script>
-        // Simple auth (hash-based for demo - replace with proper auth in production)
-        const ADMIN_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'; // 'admin' - CHANGE THIS
+        // Secure hash-based authentication
+        const ADMIN_HASH = 'f3b0f8d5d3304e815609bda8681b21365229d03959a51d73ef3236e3238a202c';
 
         async function sha256(message) {
             const msgBuffer = new TextEncoder().encode(message);
@@ -362,8 +362,8 @@
             return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
         }
 
-        // Check if already authenticated
-        if (localStorage.getItem('clockwork_admin_auth') === 'true') {
+        // Check if already authenticated (session-based)
+        if (sessionStorage.getItem('clockwork_admin_auth') === ADMIN_HASH) {
             showDashboard();
         }
 
@@ -372,18 +372,12 @@
             const pass = document.getElementById('passphrase').value;
             const hash = await sha256(pass);
 
-            // Accept 'admin' or 'genesis' or 'clockwork' for now
-            const validHashes = [
-                '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // admin
-                'acbd18db4cc2f85cedef654fccc4a4d8', // not a real hash, placeholder
-            ];
-
-            // Simple check - in production use proper auth
-            if (pass === 'admin' || pass === 'genesis' || pass === 'clockwork' || pass === 'phoenix') {
-                localStorage.setItem('clockwork_admin_auth', 'true');
+            if (hash === ADMIN_HASH) {
+                sessionStorage.setItem('clockwork_admin_auth', ADMIN_HASH);
                 showDashboard();
             } else {
                 document.getElementById('authError').classList.remove('hidden');
+                document.getElementById('passphrase').value = '';
             }
         });
 
