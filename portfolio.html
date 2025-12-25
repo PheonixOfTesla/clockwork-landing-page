@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Josh Lerner - Full-Stack Software Engineer & AI Systems Architect. Creator of Phoenix AI, ClockWork, and 6 production applications with 200,000+ lines of code.">
+    <meta name="keywords" content="Josh Lerner, Software Engineer, Full-Stack Developer, Phoenix AI, ClockWork, JavaScript, React, Node.js, AI, Miami">
+    <meta name="author" content="Josh Lerner">
+
+    <link rel="canonical" href="https://pheonix.us/">
+
+    <meta property="og:title" content="Josh Lerner - Full-Stack Engineer & AI Architect">
+    <meta property="og:description" content="Built 6 production apps, 200,000+ lines of code in 5 months. Creator of Phoenix AI - a conscious AI operating system.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pheonix.us/">
+    <meta property="og:image" content="https://pheonix.us/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Josh Lerner - Full-Stack Engineer & AI Architect">
+    <meta name="twitter:description" content="Built 6 production apps, 200,000+ lines of code in 5 months. Solo.">
+
+    <title>Josh Lerner | Full-Stack Engineer & AI Architect</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d9ff;
+            --secondary: #0096ff;
+            --accent: #00ffff;
+            --dark: #000000;
+            --text: #00d9ff;
+            --text-muted: #66d9ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #000000;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 150, 255, 0.1) 0%, transparent 50%);
+            animation: bgPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 217, 255, 0.03) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0, 217, 255, 0.03) 3px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 50, 100, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 1);
+        }
+
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 150, 255, 0.05) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 50, 100, 0.2) 100%);
+            border: 2px solid rgba(0, 217, 255, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 217, 255, 1);
+            box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 150, 255, 0.1));
+            padding: 2rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header .tech-stack {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .project-features li:before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-link.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 50, 100, 0.2) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--text);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 50, 100, 0.2) 100%);
+            border: 2px solid rgba(0, 217, 255, 0.4);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.4) 0%, rgba(0, 50, 100, 0.2) 100%);
+            border-top: 1px solid rgba(0, 217, 255, 0.3);
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Josh Lerner</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Josh Lerner</h1>
+            <p class="subtitle">Full-Stack Engineer & AI Systems Architect</p>
+            <p>Built 6 production applications with 200,000+ lines of code in 5 months. Solo. Creator of Phoenix - a conscious AI operating system with 626 API endpoints.</p>
+            <div class="cta-buttons">
+                <a href="https://pheonix.us" class="btn btn-primary" target="_blank">View Phoenix AI</a>
+                <a href="https://clockwork.fit" class="btn btn-secondary" target="_blank">View ClockWork</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">The Numbers</h2>
+        <p class="section-subtitle">5 months of compressed execution</p>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Production Apps</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">200,000+</div>
+                <div class="stat-label">Lines of Code</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">626</div>
+                <div class="stat-label">API Endpoints</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">71</div>
+                <div class="stat-label">Database Models</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">AI Providers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Patents Pending</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Production applications built from scratch</p>
+
+        <div class="projects-grid">
+            <!-- Phoenix AI -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">&#x1F525;</div>
+                    <h3>Phoenix AI</h3>
+                    <p class="tech-stack">Node.js | MongoDB | Redis | Real-time</p>
+                </div>
+                <div class="project-body">
+                    <p>AI personal operating system that manages your entire digital life through natural conversation.</p>
+                    <ul class="project-features">
+                        <li>626 API endpoints, 71 database models</li>
+                        <li>Voice interface with real-time responses</li>
+                        <li>Task automation: SMS, calls, calendar, email</li>
+                        <li>6 wearable integrations for health tracking</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://pheonix.us" class="project-link" target="_blank">Live Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ClockWork -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">&#x2699;</div>
+                    <h3>ClockWork</h3>
+                    <p class="tech-stack">React 18 | Node.js | MongoDB | Stripe | Socket.IO</p>
+                </div>
+                <div class="project-body">
+                    <p>B2B2C AI-powered fitness coaching platform connecting coaches with clients.</p>
+                    <ul class="project-features">
+                        <li>AI workout generation</li>
+                        <li>Exercise library with video demos</li>
+                        <li>Nutrition tracking</li>
+                        <li>Wearable integrations</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://clockwork.fit" class="project-link" target="_blank">Live Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Omniverse -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">&#x1F310;</div>
+                    <h3>Omniverse</h3>
+                    <p class="tech-stack">Rust | TypeScript | Tauri</p>
+                </div>
+                <div class="project-body">
+                    <p>Privacy-first AI that runs entirely on-device. Zero cloud dependency.</p>
+                    <ul class="project-features">
+                        <li>Rust core for performance</li>
+                        <li>End-to-end encryption</li>
+                        <li>On-device ML inference</li>
+                        <li>Cross-platform desktop and mobile</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/PheonixOfTesla" class="project-link secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightning Pass -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">&#x26A1;</div>
+                    <h3>Lightning Pass</h3>
+                    <p class="tech-stack">Node.js | Stripe Connect | Twilio | Socket.IO</p>
+                </div>
+                <div class="project-body">
+                    <p>Fintech marketplace for nightlife venues with dynamic pricing.</p>
+                    <ul class="project-features">
+                        <li>Stripe Connect marketplace</li>
+                        <li>Dynamic pricing engine</li>
+                        <li>QR pass system</li>
+                        <li>Real-time venue dashboard</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://lightning-app-peach.vercel.app" class="project-link" target="_blank">Live Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Stack</h2>
+        <p class="section-subtitle">Full-stack expertise across modern technologies</p>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Rust</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">Socket.IO</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">React 18</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Capacitor</span>
+                    <span class="skill-tag">Tauri</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>AI/ML</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Claude API</span>
+                    <span class="skill-tag">Gemini API</span>
+                    <span class="skill-tag">OpenAI</span>
+                    <span class="skill-tag">ONNX Runtime</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Payments & APIs</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Stripe</span>
+                    <span class="skill-tag">Stripe Connect</span>
+                    <span class="skill-tag">Plaid</span>
+                    <span class="skill-tag">Twilio</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Infrastructure</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Railway</span>
+                    <span class="skill-tag">Vercel</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's build something together</p>
+
+        <div class="contact-content">
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">
+                Open to senior/staff engineering roles, founding engineer positions, and interesting technical challenges.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:digitalappleco@gmail.com" class="contact-link">digitalappleco@gmail.com</a>
+                <a href="https://github.com/PheonixOfTesla" class="contact-link" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/josh-lerner-210b29160" class="contact-link" target="_blank">LinkedIn</a>
+                <a href="https://pheonix.us" class="contact-link" target="_blank">Phoenix AI</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Josh Lerner. Built with 200,000+ lines of determination.</p>
+    </footer>
+</body>
+</html>
